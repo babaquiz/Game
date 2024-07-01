@@ -13,7 +13,7 @@ body {
   box-sizing: content-box;
   width: 26.87em;
   padding: 1em ;
-  padding-inline-start: 50px;
+  padding-inline-end: -5px;
   background-color: #5885AF;
   position: absolute;
   transform: translate(-50%, -30%);
@@ -25,7 +25,7 @@ body {
   position: relative;
   width: 100%;
   display: grid;
-  gap: 0.1em;
+  gap: 0.2em;
 }
 .stats-container {
   text-align: center;
@@ -51,7 +51,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 8px solid #000000;
   transition: transform 0.7s ease-out;
   backface-visibility: hidden;
 }
