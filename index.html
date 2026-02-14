@@ -1,284 +1,133 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PYRO</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/releases/v6.0.0/css/all.min.css">
+    <title>Special for Fanda Ghaisani</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        
         body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: radial-gradient(circle, #ffe3e3 0%, #ffb1b1 100%);
+            font-family: 'Poppins', sans-serif;
+            overflow: hidden;
+            text-align: center;
         }
 
-        .hero-gradient {
-            background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #059669 100%);
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            z-index: 100;
+            width: 350px;
+            position: relative;
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        h1 { color: #d63384; font-size: 1.8rem; margin-bottom: 10px; }
+        p { color: #555; font-size: 1rem; margin-bottom: 25px; }
+
+        .btn-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
         }
 
-        .process-step:hover .step-number {
-            transform: scale(1.1) rotate(5deg);
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        #yesBtn { background-color: #ff4d6d; color: white; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4); }
+        #noBtn { background-color: #f0f0f0; color: #888; position: absolute; }
+
+        .heart-particle {
+            position: absolute;
+            color: #ff4d6d;
+            font-size: 1.5rem;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(360deg); }
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
+<body>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between h-16 items-center">
-                <div class="flex items-center gap-2">
-                    <div class="w-10 h-10 rounded-lg flex items-center justify-center text-white">
-                        <img src="Logo-removebg-preview.png" alt="">
-                    </div>
-                    <span class="text-2xl font-bold tracking-tight">PYRO</span>
-                </div>
-                <div class="hidden md:flex space-x-8 font-medium text-slate-600 ">
-                    <a href="#purpose" class="hover:text-emerald-600 transition py-2">Purpose</a>
-                    <a href="#process" class="hover:text-emerald-600 transition py-2">Process</a>
-                    <a href="#products" class="hover:text-emerald-600 transition py-2">Products</a>
-                    <a href="#impact" class="hover:text-emerald-600 transition py-2">Impact</a>
-                    <a href="#contact" class="bg-emerald-600 text-white px-5 py-2 rounded-full hover:bg-emerald-700 transition">Contact Us</a>
-                </div>
-                <button class="md:hidden text-slate-600">
-                    <i class="fas fa-bars fa-xl"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 hero-gradient text-white overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="max-w-3xl">
-                <h1 class="text-5xl lg:text-7xl font-extrabold mb-6 leading-tight">
-                Turning Plastic Waste into <span class="text-emerald-300">Valuable Items</span>
-                </h1>
-                <p class="text-xl text-emerald-50 mb-10 leading-relaxed">
-                    Utilize advanced pyrolysis technology to transform non-recyclable plastic waste into high-quality synthetic oil.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#process" class="bg-white text-emerald-900 px-8 py-4 rounded-xl font-bold hover:bg-emerald-50 transition shadow-lg">Explore Our Process</a>
-                    <a href="#impact" class="border-2 border-white/30 hover:border-white px-8 py-4 rounded-xl font-bold transition">The Environmental Impact</a>
-                </div>
-            </div>
-        </div>
-        <!-- Abstract Shapes -->
-        <div class="absolute top-0 right-0 -translate-y-1/2 translate-x-1/4 w-[600px] h-[600px] bg-emerald-400/20 rounded-full blur-3xl"></div>
-    </header>
-
-    <!-- Purpose Section -->
-    <section id="purpose" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="text-emerald-600 font-bold tracking-widest uppercase text-sm">Purpose</span>
-                    <h2 class="text-4xl font-bold mt-4 mb-6">Solving the Global Plastic Crisis</h2>
-                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
-                        Every year, millions of tons of plastic end up in landfills or our oceans. Traditional recycling can only handle a fraction of this waste. 
-                    </p>
-                    <p class="text-lg text-slate-600 mb-8 leading-relaxed">
-                       PYRO is here to provide waste management solutions. We convert plastic waste into oil to eliminate waste and create a clean environment.
-                    </p>
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="p-4 bg-emerald-50 rounded-lg">
-                            <h4 class="text-2xl font-bold text-emerald-700">93%</h4>
-                            <p class="text-sm text-slate-500 font-medium">Waste Volume Reduction</p>
-                        </div>
-                        <div class="p-4 bg-emerald-50 rounded-lg">
-                            <h4 class="text-2xl font-bold text-emerald-700">0%</h4>
-                            <p class="text-sm text-slate-500 font-medium">Harmful Emissions</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative">
-                    <div class="rounded-3xl overflow-hidden shadow-2xl">
-                        <img src="background.jpg" alt="Plastic Waste" class="w-full h-[500px] object-cover">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Process Section -->
-    <section id="process" class="py-24 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold mb-4">The Pyrolysis Process</h2>
-                <p class="text-slate-600 max-w-2xl mx-auto">Thermochemical decomposition of materials by heating without using oxygen, producing gas, oil, and solids.s</p>
-            </div>
+    <div class="card" id="mainCard">
+        <div id="content">
+            <h1>Halo, Fanda Ghaisani! 💖</h1>
+            <p>Di hari Valentine ini, aku cuma mau bilang kamu jangan mikir aku tidak perhatian yaa....</p>
+            <p><strong>Kita harus baikan yaa?</strong></p>
             
-            <div class="grid md:grid-cols-4 gap-8">
-                <!-- Step 1 -->
-                <div class="process-step text-center">
-                    <div class="step-number w-16 h-16 bg-white shadow-md rounded-2xl flex items-center justify-center text-2xl font-bold text-emerald-600 mx-auto mb-6 transition-transform">1</div>
-                    <h3 class="font-bold text-xl mb-3">Collection</h3>
-                    <p class="text-slate-500 text-sm">Mixed plastic waste is sorted and shredded into uniform pieces.</p>
-                </div>
-                <!-- Step 2 -->
-                <div class="process-step text-center">
-                    <div class="step-number w-16 h-16 bg-white shadow-md rounded-2xl flex items-center justify-center text-2xl font-bold text-emerald-600 mx-auto mb-6 transition-transform">2</div>
-                    <h3 class="font-bold text-xl mb-3">Heating</h3>
-                    <p class="text-slate-500 text-sm">Plastic is heated in an oxygen-free chamber to prevent combustion.</p>
-                </div>
-                <!-- Step 3 -->
-                <div class="process-step text-center">
-                    <div class="step-number w-16 h-16 bg-white shadow-md rounded-2xl flex items-center justify-center text-2xl font-bold text-emerald-600 mx-auto mb-6 transition-transform">3</div>
-                    <h3 class="font-bold text-xl mb-3">Vaporization</h3>
-                    <p class="text-slate-500 text-sm">Polymers break down into gas molecules through thermal cracking.</p>
-                </div>
-                <!-- Step 4 -->
-                <div class="process-step text-center">
-                    <div class="step-number w-16 h-16 bg-white shadow-md rounded-2xl flex items-center justify-center text-2xl font-bold text-emerald-600 mx-auto mb-6 transition-transform">4</div>
-                    <h3 class="font-bold text-xl mb-3">Condensation</h3>
-                    <p class="text-slate-500 text-sm">Gases are cooled into liquid synthetic oil.</p>
-                </div>
+            <div class="btn-container" style="height: 50px;">
+                <button class="btn" id="yesBtn" onclick="celebrate()">Mau!</button>
+                <button class="btn" id="noBtn" onmouseover="moveButton()">Enggak</button>
             </div>
         </div>
-    </section>
-
-    <!-- Product Section -->
-    <section id="products" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
-                <div>
-                    <h2 class="text-4xl font-bold">Our Products</h2>
-                    <p class="text-slate-600 mt-2">Sustainable alternatives for industries.</p>
-                </div>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 border border-slate-200 rounded-3xl hover:shadow-xl transition group">
-                    <div class="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
-                        <i class="fas fa-oil-can fa-lg"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Pyrolysis Oil</h3>
-                    <p class="text-slate-500 mb-6">Pyrolysis oil as a sustainable plastic raw material.</p>
-                    <ul class="space-y-2 text-sm font-medium text-slate-700">
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Low Sulfur Content</li>
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> High Energy Density</li>
-                    </ul>
-                </div>
-
-                <div class="p-8 border border-slate-200 rounded-3xl hover:shadow-xl transition group">
-                    <div class="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
-                        <i class="fas fa-gas-pump fa-lg"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Synthetic Gas</h3>
-                    <p class="text-slate-500 mb-6">High heat gas mixture as an alternative energy source.</p>
-                    <ul class="space-y-2 text-sm font-medium text-slate-700">
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Clean Combustion</li>
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> High Calor</li>
-                    </ul>
-                </div>
-
-                <div class="p-8 border border-slate-200 rounded-3xl hover:shadow-xl transition group">
-                    <div class="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-600 mb-6 group-hover:bg-emerald-600 group-hover:text-white transition">
-                        <i class="fas fa-cube fa-lg"></i>
-                    </div>
-                    <h3 class="text-2xl font-bold mb-4">Carbon Black</h3>
-                    <p class="text-slate-500 mb-6">Solid product residue of the pyrolysis process.</p>
-                    <ul class="space-y-2 text-sm font-medium text-slate-700">
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> Industrial Grade</li>
-                        <li><i class="fas fa-check text-emerald-500 mr-2"></i> 100% Recycled</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Environmental Effect -->
-    <section id="impact" class="py-24 bg-emerald-900 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-4xl font-bold mb-12">Our Commitment</h2>
-            <div class="grid md:grid-cols-3 gap-12">
-                <div>
-                    <i class="fas fa-cloud-sun text-4xl text-emerald-400 mb-6"></i>
-                    <h4 class="text-xl font-bold mb-3">Plastic Waste Reduction</h4>
-                    <p class="text-emerald-100/70">Reducing the amount of plastic waste through the pyrolysis process.</p>
-                </div>
-                <div>
-                    <i class="fas fa-water text-4xl text-emerald-400 mb-6"></i>
-                    <h4 class="text-xl font-bold mb-3">Environmental Preservation</h4>
-                    <p class="text-emerald-100/70">Reducing the impact of climate change due to CO2 gas and waste.</p>
-                </div>
-                <div>
-                    <i class="fas fa-infinity text-4xl text-emerald-400 mb-6"></i>
-                    <h4 class="text-xl font-bold mb-3">Circular Economy</h4>
-                    <p class="text-emerald-100/70">Turning plastic waste into useful items with high economic value.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-card rounded-3xl p-10 lg:p-16 shadow-2xl border border-slate-100 overflow-hidden relative">
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <div>
-                        <h2 class="text-4xl font-bold mb-6">Let's Start a Sustainable Future</h2>
-                        <p class="text-slate-600 mb-8">Interested in participating with us? Send us a message.</p>
-                        
-                        <div class="space-y-6">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-                                <div>
-                                    <p class="text-xs text-slate-400 uppercase font-bold">Email Us</p>
-                                    <p class="font-semibold">contact@pyro.com</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                </div>
-                                <div>
-                                    <p class="text-xs text-slate-400 uppercase font-bold">Our Facility</p>
-                                    <p class="font-semibold">Jakarta, Indonesia</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="flex items-center gap-2">
-                    <span class="text-xl font-bold text-white">PYRO</span>
-                </div>
-            </div>
-            <div class="text-center mt-8 text-xs">
-                © 2025 PYRO (Rafi Sakya Aji, Muhamad Mufti Indana, Muhammad Faiq Dzakwan)
-            </div>
-        </div>
-    </footer>
+    </div>
 
     <script>
-        // Smooth scroll for nav links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+        // Animasi Hati Jatuh
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart-particle');
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.top = '-5vh';
+            heart.style.opacity = Math.random();
+            heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            heart.style.duration = (Math.random() * 3 + 2) + 's';
+            
+            document.body.appendChild(heart);
+            
+            heart.animate([
+                { transform: `translateY(0) rotate(0deg)` },
+                { transform: `translateY(105vh) rotate(${Math.random() * 360}deg)` }
+            ], {
+                duration: Math.random() * 3000 + 2000,
+                easing: 'linear'
             });
-        });
+
+            setTimeout(() => heart.remove(), 5000);
+        }
+        setInterval(createHeart, 200);
+
+        // Fungsi Tombol "Enggak" Lari
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        // Fungsi Saat Klik "Mau"
+        function celebrate() {
+            const content = document.getElementById('content');
+            content.innerHTML = `
+                <h1 style="font-size: 3rem;">YEYYY! 🥰</h1>
+                <p>Kita harus baik-baik terus yaa....jangan ada marah atau kesell</p>
+                <p>Aku ga kasi apa apa sekarang yaa, tapi aku kasi kamu pas ulang tahunn!</p>
+                <div style="font-size: 50px;">💖🌸🍫</div>
+            `;
+            
+            // Ledakan hati ekstra
+            for(let i=0; i<50; i++) {
+                setTimeout(createHeart, i * 50);s
+            }
+        }
     </script>
 </body>
 </html>
-
